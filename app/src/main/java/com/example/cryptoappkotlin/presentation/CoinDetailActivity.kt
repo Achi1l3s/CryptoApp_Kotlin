@@ -5,14 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.cryptoappkotlin.R
 import com.example.cryptoappkotlin.databinding.ActivityCoinDetailBinding
+import com.example.cryptoappkotlin.databinding.FragmentCoinDetailBinding
+import com.example.cryptoappkotlin.presentation.CoinDetailFragment.Companion.newInstance
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCoinDetailBinding
-
-    private lateinit var viewModel: CoinViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,22 +27,11 @@ class CoinDetailActivity : AppCompatActivity() {
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: EMPTY_SYMBOL
 
-        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-
-        viewModel.getDetailInfo(fromSymbol).observe(this) {
-            with(binding) {
-                with(it) {
-                    tvDetailCoinName.text = it.fromSymbol
-                    tvDetailPrice.text = price
-                    tvDetailMinPrice.text = lowDay
-                    tvDetailMaxPrice.text = highDay
-                    tvDetailLastTradingPlace.text = lastMarket
-                    tvDetailLastUpdate.text = lastUpdate
-                    Picasso.get()
-                        .load(imageUrl)
-                        .into(ivDetailLogo)
-                }
-            }
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, newInstance(fromSymbol))
+                .commit()
         }
     }
 
