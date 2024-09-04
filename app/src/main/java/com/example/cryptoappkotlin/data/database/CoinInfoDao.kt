@@ -10,6 +10,7 @@ import com.example.cryptoappkotlin.data.network.model.CoinInfoDto
 
 @Dao
 interface CoinInfoDao {
+
     @Query("SELECT * FROM full_price_list ORDER BY price DESC")
     fun getPriceList(): LiveData<List<CoinInfoDbModel>>
 

@@ -1,8 +1,7 @@
 package com.example.cryptoappkotlin.data.network
 
-import com.example.cryptoappkotlin.data.network.model.CoinNamesListDto
 import com.example.cryptoappkotlin.data.network.model.CoinInfoJsonContainerDto
-import io.reactivex.rxjava3.core.Single
+import com.example.cryptoappkotlin.data.network.model.CoinNamesListDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 

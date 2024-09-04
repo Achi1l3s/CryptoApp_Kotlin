@@ -8,4 +8,5 @@
     <string name="max_today">Max today:</string>
     <string name="last_trade">Last trade:</string>
     <string name="updated">Updated:</string>
+    <string name="slash"> / </string>
 </resources>

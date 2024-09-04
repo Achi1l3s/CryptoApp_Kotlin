@@ -80,6 +80,10 @@ dependencies {
     //WorkManager
     implementation(libs.work.runtime.ktx)
 
+    //Dagger 2
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+
     //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
