@@ -2,10 +2,7 @@ package com.example.cryptoappkotlin.presentation
 
 import android.app.Application
 import androidx.work.Configuration
-import com.example.cryptoappkotlin.data.database.AppDatabase
 import com.example.cryptoappkotlin.data.di.DaggerApplicationComponent
-import com.example.cryptoappkotlin.data.mapper.CoinMapper
-import com.example.cryptoappkotlin.data.network.ApiFactory
 import com.example.cryptoappkotlin.data.workers.RefreshDataWorkerFactory
 import javax.inject.Inject
 

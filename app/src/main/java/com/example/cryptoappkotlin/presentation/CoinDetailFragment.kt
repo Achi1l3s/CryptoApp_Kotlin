@@ -22,7 +22,6 @@ class CoinDetailFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-
     private val component by lazy {
         (requireActivity().application as CoinApp).component
     }
