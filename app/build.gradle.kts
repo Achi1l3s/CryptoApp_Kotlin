@@ -42,11 +42,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -57,15 +57,16 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.lifecycle)
 
-    //Lifecycle
-//    implementation(libs.lifecycle.viewmodel.ktx)
-//    annotationProcessor(libs.lifecycle.compiler)
-//    implementation(libs.lifecycle.reactivestreams.ktx)
+    //Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     //Room
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
+    implementation(libs.room.ktx)
 
     //Picasso
     implementation(libs.picasso)
@@ -76,14 +77,12 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.adapter.rxjava3)
 
-    //OkHttp3
-//    implementation(libs.okhttp3)
-//    implementation(libs.okhttp3.interceptor)
+    //WorkManager
+    implementation(libs.work.runtime.ktx)
 
-
-    //RxJava
-    implementation(libs.rxjava)
-    implementation(libs.rxandroid)
+    //Dagger 2
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
     //Test
     testImplementation(libs.junit)
